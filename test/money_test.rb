@@ -74,7 +74,7 @@ class Tegon::MoneyTest < Minitest::Test
   end
 
   def test_that_is_equal_after_converted
-    assert_equal @fifty_eur.convert_to('USD'), Tegon::Money.new(55.50, 'USD')
+    assert_in_delta @fifty_eur.convert_to('USD').cents, Tegon::Money.new(55.50, 'USD').cents, 0.01
   end
 
   def test_greater_than
