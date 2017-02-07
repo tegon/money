@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.version     = Tegon::VERSION
   s.required_ruby_version = '>= 1.9.3'
+  s.add_development_dependency 'minitest', '5.10.1'
 end
