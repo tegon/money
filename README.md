@@ -1,6 +1,8 @@
 # tegon-money
 Currency conversion library
 
+[![Build Status](https://travis-ci.org/tegon/money.svg?branch=master)](https://travis-ci.org/tegon/money)
+
 # Usage
 ---
 
