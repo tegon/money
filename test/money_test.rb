@@ -1,20 +1,20 @@
 require 'minitest/autorun'
-require 'tegon/money'
+require 'money'
 
-class Tegon::MoneyTest < Minitest::Test
+class MoneyTest < Minitest::Test
   def setup
-    Tegon::Money.conversion_rates('EUR', 'USD' => 1.11, 'Bitcoin' => 0.0047)
-    @fifty_eur = Tegon::Money.new(50, 'EUR')
-    @twenty_dollars = Tegon::Money.new(20, 'USD')
+    Money.conversion_rates('EUR', 'USD' => 1.11, 'Bitcoin' => 0.0047)
+    @fifty_eur = Money.new(50, 'EUR')
+    @twenty_dollars = Money.new(20, 'USD')
   end
 
   def test_that_base_currency_is_set
-    assert_equal 'EUR', Tegon::Money.base_currency
+    assert_equal 'EUR', Money.base_currency
   end
 
   def test_that_rates_is_set
     rates = { 'USD' => 1.11, 'Bitcoin' => 0.0047 }
-    assert_equal rates, Tegon::Money.rates
+    assert_equal rates, Money.rates
   end
 
   def test_that_amount_is_set
@@ -40,7 +40,7 @@ class Tegon::MoneyTest < Minitest::Test
   end
 
   def test_conversion_throws_an_error_with_unknown_currency
-    assert_raises Tegon::Money::ConversionRateMissingError do
+    assert_raises Money::ConversionRateMissingError do
       @fifty_eur.convert_to('BRL')
     end
   end
@@ -66,27 +66,27 @@ class Tegon::MoneyTest < Minitest::Test
   end
 
   def test_that_is_equal_with_same_currency_and_amount
-    assert_equal @twenty_dollars, Tegon::Money.new(20, 'USD')
+    assert_equal @twenty_dollars, Money.new(20, 'USD')
   end
 
   def test_that_is_not_equal_with_same_currency_and_different_amount
-    refute_equal @twenty_dollars, Tegon::Money.new(30, 'USD')
+    refute_equal @twenty_dollars, Money.new(30, 'USD')
   end
 
   def test_that_is_equal_after_converted
-    assert_in_delta @fifty_eur.convert_to('USD').cents, Tegon::Money.new(55.50, 'USD').cents, 0.01
+    assert_in_delta @fifty_eur.convert_to('USD').cents, Money.new(55.50, 'USD').cents, 0.01
   end
 
   def test_greater_than
-    assert @twenty_dollars > Tegon::Money.new(5, 'USD')
+    assert @twenty_dollars > Money.new(5, 'USD')
   end
 
   def test_greater_than_or_equal_when_greater
-    assert @twenty_dollars >= Tegon::Money.new(5, 'USD')
+    assert @twenty_dollars >= Money.new(5, 'USD')
   end
 
   def test_greater_than_or_equal_when_equal
-    assert @twenty_dollars >= Tegon::Money.new(20, 'USD')
+    assert @twenty_dollars >= Money.new(20, 'USD')
   end
 
   def test_lower_than
@@ -98,6 +98,6 @@ class Tegon::MoneyTest < Minitest::Test
   end
 
   def test_lower_than_or_equal_when_equal
-    assert @twenty_dollars <= Tegon::Money.new(20, 'USD')
+    assert @twenty_dollars <= Money.new(20, 'USD')
   end
 end

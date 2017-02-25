@@ -1,14 +1,14 @@
-require File.expand_path('../lib/tegon/version', __FILE__)
+require File.expand_path('../lib/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = 'tegon-money'
+  s.name        = 'money'
   s.summary     = 'Currency conversion library'
   s.description = 'Convert currencies and perform arithmetic operations'
   s.authors     = ['Leonardo Tegon']
   s.email       = 'ltegon93@gmail.com'
   s.files       = [
-    'lib/tegon/money.rb',
-    'lib/tegon/version.rb'
+    'lib/money.rb',
+    'lib/version.rb'
   ]
   s.homepage    = 'https://github.com/tegon/money'
   s.license     = 'MIT'
