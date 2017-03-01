@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage    = 'https://github.com/tegon/money'
   s.license     = 'MIT'
-  s.version     = Tegon::VERSION
+  s.version     = MoneyVersion::VERSION
   s.required_ruby_version = '>= 1.9.3'
   s.add_development_dependency 'minitest', '5.10.1'
   s.add_development_dependency 'rake', '12.0.0'

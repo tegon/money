@@ -27,7 +27,7 @@ class Money
       if rates.has_key?(currency)
         rates[currency]
       else
-        message = "Missing conversion rate for currency: #{currency}. Please set it using Tegon::Money.conversion_rates"
+        message = "Missing conversion rate for currency: #{currency}. Please set it using Money.conversion_rates"
         raise ConversionRateMissingError.new(message)
       end
     end

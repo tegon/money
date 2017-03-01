@@ -1,4 +1,4 @@
-module Tegon
+module MoneyVersion
   PATCH = 1
   MINOR = 0
   MAJOR = 0
